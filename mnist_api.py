@@ -1,10 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optim
 
 import torchvision.transforms as transforms
-import torchvision.datasets as datasets
 
 from random import random
 import os
@@ -32,7 +30,7 @@ class NN(nn.Module):
         x = self.fc2(x)
         return x
         
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 model = NN().to(device)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
