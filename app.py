@@ -1,4 +1,5 @@
 from flask import Flask, request
+import os
 from mnist_api import *
 from utils import parseImgStr
 
@@ -13,7 +14,4 @@ def home() -> str:
         return "Request this URL with a POST method to get the response."
 
 if __name__ == '__main__':
-    app.run(
-            host='0.0.0.0', 
-            port=9000
-            )
+    app.run(port=os.getenv("PORT", default=5000), host='0.0.0.0')
